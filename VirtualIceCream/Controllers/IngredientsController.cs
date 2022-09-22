@@ -19,11 +19,11 @@ namespace VirtualIceCream.Controllers
 
     [HttpGet]
 
-    public ActionResult<List<Ingredient>> getIngredientsbyOrder()
+    public ActionResult<List<Ingredient>> getIngredients()
     {
         try 
         {
-          List<Ingredient> ingredients = _ingredientService.getIngredientsbyOrder();
+          List<Ingredient> ingredients = _ingredientService.getIngredients();
           return Ok(ingredients);
         }
         catch (Exception e)

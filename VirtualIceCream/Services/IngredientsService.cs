@@ -11,9 +11,9 @@ namespace VirtualIceCream.Services
         {
             _ingredRepo = ingredRepo;
         }
-        internal List<Ingredient> getIngredientsByOrder()
+        internal List<Ingredient> getIngredients()
         {
-         return _ingredRepo.getIngredientsByOrder();
+         return _ingredRepo.getIngredients();
         }
     }
 }

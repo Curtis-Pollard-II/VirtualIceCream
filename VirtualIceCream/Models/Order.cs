@@ -7,7 +7,7 @@ namespace VirtualIceCream.Models
         public int Total { get; set; }
         public string Screenshot { get; set; }
         public string CreatorId { get; set; }
-        public Account Creator { get; set; }
+        public Profile Creator { get; set; }
 
     }
 }

@@ -14,12 +14,13 @@ namespace VirtualIceCream.Controllers
     public class OrderController : ControllerBase
     {
         private readonly OrdersService _ordersService;
+        private readonly FavoritesService _favoritesService;
 
-        public OrderController(OrdersService ordersService)
+        public OrderController(OrdersService ordersService, FavoritesService favoritesService)
         {
             _ordersService = ordersService;
+            _favoritesService = favoritesService;
         }
-
 
         [HttpGet]
         public ActionResult<List<Order>> GetOrders()
@@ -52,11 +53,36 @@ namespace VirtualIceCream.Controllers
           {
             return BadRequest(e.Message);
           }
-
-          
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<Order> GetOne(int id)
+        {
+          try 
+          {
+            Order order = _ordersService.GetOne(id);
+            return Ok(order);
+          }
+          catch (Exception e)
+          {
+            return BadRequest(e.Message);
+          }
+        }
 
+        [HttpGet("{id}/favorites")]
+
+        public ActionResult<List<Hearts>> GetHearts(int id)
+        {
+          try 
+          {
+            List<Hearts> hearts = _favoritesService.GetHearts(id);
+            return Ok(hearts);
+          }
+          catch (Exception e)
+          {
+            return BadRequest(e.Message);
+          }
+        }
         
 
 

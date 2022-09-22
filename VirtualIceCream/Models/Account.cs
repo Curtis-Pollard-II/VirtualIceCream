@@ -10,4 +10,9 @@ namespace VirtualIceCream.Models
     {
         public string Email { get; set; }
     }
+
+    public class Hearts : Profile
+    {
+        public int favoritesId { get; set; }
+    }
 }

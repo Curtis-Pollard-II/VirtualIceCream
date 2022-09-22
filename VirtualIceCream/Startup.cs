@@ -32,11 +32,14 @@ namespace VirtualIceCream
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "VirtualIceCream", Version = "v1" });
             });
             services.AddScoped<IDbConnection>(x => CreateDbConnection());
-            services.AddTransient<OrdersRepository>();
-            services.AddTransient<OrdersService>();
             
-            services.AddScoped<AccountsRepository>();
             services.AddScoped<AccountService>();
+            services.AddTransient<OrdersService>();
+            services.AddTransient<FavoritesService>();
+
+            services.AddScoped<AccountsRepository>();
+            services.AddTransient<OrdersRepository>();
+            services.AddTransient<FavoritesRepository>();
         }
 
         private void ConfigureCors(IServiceCollection services)

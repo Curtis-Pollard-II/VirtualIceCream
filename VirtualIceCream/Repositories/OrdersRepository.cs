@@ -37,5 +37,22 @@ namespace VirtualIceCream.Repositories
             newOrder.Id = id;
             return newOrder;
         }
+
+        internal Order GetOne(int id)
+        {
+            string sql = @"
+            SELECT 
+                o.*,
+                a.*
+                FROM Orders o 
+                JOIN accounts a On a.id = o.creatorId
+                Where o.id = @id; 
+            ";
+            return _db.Query<Order, Profile, Order>(sql, (order, profile) => 
+            {
+                order.Creator = profile;
+                return order;
+            }, new { id }).FirstOrDefault();
+        }
     }
 }
