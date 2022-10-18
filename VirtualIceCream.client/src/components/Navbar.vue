@@ -23,7 +23,7 @@
             :to="{ name: 'About' }"
             class="btn text-success lighten-30 selectable text-uppercase"
           >
-            Store Info Possibley change
+            Store Info Possibly change
           </router-link>
         </li>
       </ul>
